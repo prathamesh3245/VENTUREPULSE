@@ -1,78 +1,159 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
-import './App.css'
-import frameImg from './assets/Frame 1.png'
-import waywire from './assets/waywire.png'
-import { CardComponent } from './Components/card'
-import { AnalysisComponent } from './Components/analysis'
-import { DashboardComponent } from './Components/Dashboard'
-import { Login } from './Components/Auth/Login'
-import { Register } from './Components/Auth/Register'
-import { UserDashboard } from './Components/UserDashboard'
-import { ProtectedRoute } from './Components/ProtectedRoute'
+// import { Navigate, Routes, Route } from 'react-router-dom'
+// import './App.css'
+// import { LandingPage } from './Components/landingPage'
+// import { AllStartups } from "./Components/allStartups"
+// import { HomePage } from './Components/WayWire'
+// import { Login } from './Components/Auth/Login'
+// import { Register } from './Components/Auth/Register'
+// import { StartupDashboard } from './Components/dashboards/StartupDashboard'
+// import { BankerDashboard } from './Components/dashboards/BankerDashboard'
 
-function HomePage() {
-  return (
-    <div style={{backgroundColor: 'rgb(254, 251, 245)'}}>
-      <style>
-        @import url('https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-      </style>
-      <div>
-        <img src={frameImg} alt=""  style={{height: 100 , paddingLeft: 70}} />
-      </div>
+// // ─── Protected Route Helper ──────────────────────────────────────────────────
+// function ProtectedRoute({ children, requiredType }) {
+//   try {
+//     const user = JSON.parse(localStorage.getItem('vp_current_user'));
+//     if (!user) return <Navigate to="/login" replace />;
+//     if (requiredType && user.userType !== requiredType) {
+//       // Redirect to the correct dashboard
+//       return <Navigate to={user.userType === 'startup' ? '/startup-dashboard' : '/banker-dashboard'} replace />;
+//     }
+//     return children;
+//   } catch {
+//     return <Navigate to="/login" replace />;
+//   }
+// }
 
-      <div style={{display: 'flex', gap: 190}}>
-          <div style={{display: 'flex', alignItems: 'center', marginBottom: 160}}>
-          <img src={waywire} alt="" style={{height: 150, marginTop: 50, marginLeft: 100}}/>
-          <div>
-            <h1 style={{marginLeft: 20}}>WayWire</h1>
-            <h2 style={{marginLeft: 20}}>Video Content</h2>
-            <div style={{display: 'flex', alignItems: 'center', marginLeft: 20,gap: 20}}>
-              <div style={{height: 27, width: 100, backgroundColor: 'rgba(0, 0, 255, 0.4)'}}> <p style={{ color: 'black', textAlign: 'center', fontSize: 10, paddingBottom: 10}}>PRIVATE</p> </div>
-              <div style={{height: 27, width: 100, backgroundColor: 'rgba(0, 0, 255, 0.4)'}}> <p style={{ color: 'black', textAlign: 'center', fontSize: 10}}>MARKETPLACE</p> </div>
-              <div style={{height: 27, width: 100, backgroundColor: 'rgba(0, 0, 255, 0.4)'}}> <p style={{ color: 'black', textAlign: 'center', fontSize: 10}}>E-COMMERCE</p> </div>
-              <div style={{height: 27, width: 100, backgroundColor: 'rgba(0, 0, 255, 0.4)'}}> <p style={{color: 'black', textAlign: 'center', fontSize: 10}}>NEW YORK</p> </div>
-            </div>
-          </div>
-        </div>
+// function App() {
+//   return (
+//     <Routes>
+//       {/* Public */}
+//       <Route path="/" element={<LandingPage />} />
+//       <Route path="/companies" element={<AllStartups />} />
+//       <Route path="/startup-detail" element={<HomePage />} />
 
-        <CardComponent style={{}}/>
+//       {/* Auth */}
+//       <Route path="/login" element={<Login />} />
+//       <Route path="/register" element={<Register />} />
+
+//       {/* Protected Dashboards */}
+//       <Route
+//         path="/startup-dashboard"
+//         element={
+//           <ProtectedRoute requiredType="startup">
+//             <StartupDashboard />
+//           </ProtectedRoute>
+//         }
+//       />
+//       <Route
+//         path="/banker-dashboard"
+//         element={
+//           <ProtectedRoute requiredType="investment_banker">
+//             <BankerDashboard />
+//           </ProtectedRoute>
+//         }
+//       />
+
+//       {/* Fallback */}
+//       <Route path="*" element={<Navigate to="/" replace />} />
+//     </Routes>
+//   );
+// }
+
+// export default App
 
 
-      </div>
-
-      <div style={{ height: 3,width: 900, backgroundColor: 'black'}}></div>
-
-      <div style={{height: 350, width: 750, marginLeft: 100, marginTop: 50}}>
-          <p style={{fontSize: 16, fontFamily: 'Elms Sans'}}>
-            WayWire, a social artery for video news, inspiration and leading voices has closed a seed capital round led by First Round Capital and Eric Schmidt's Innovation Endeavors, along with Troy Carter the Founder and CEO of Atom Factory, Oprah Winfrey the CEO of Oprah Winfrey Network, John Ham the Co-founder and Chairman of Ustream, Keith Lee theCo-founder of Booyah, and a group of angel investors. #waywire is focused on providing a network that will serve to fundamentally alter the tone and content of public dialogue around some of society's most pressing issues. The network will provide original, syndicated and community created video content, allowing today's digital generation to develop informed opinions on topics and then engage in positive debates and discussions.
-          </p>
-      </div>
-
-      <AnalysisComponent/>
-      <DashboardComponent/>
+///
 
 
-      </div>
-  )
+import { Navigate, Routes, Route } from 'react-router-dom';
+import './App.css';
+import { LandingPage } from './Components/landingPage';
+import { AllStartups } from './Components/allStartups';
+import { StartupDetailPage } from './Components/Startupdetailpage';
+import { Login } from './Components/Auth/Login';
+import { Register } from './Components/Auth/Register';
+import { StartupDashboard } from './Components/dashboards/StartupDashboard';
+import { BankerDashboard } from './Components/dashboards/BankerDashboard';
+import { PredictiveInsights } from './Components/PredictiveInsights';
+import { FinancialUpload } from './Components/FinancialUpload';
+import { InvestmentTracker } from './Components/InvestmentTracker';
+import { DueDiligencePipeline } from './Components/DueDiligencePipeline';
+
+// ── Protected Route ──────────────────────────────────────────────────────────
+function ProtectedRoute({ children, requiredType }) {
+  try {
+    const user = JSON.parse(localStorage.getItem('vp_current_user'));
+    if (!user) return <Navigate to="/login" replace />;
+    if (requiredType && user.userType !== requiredType) {
+      return <Navigate to={user.userType === 'startup' ? '/startup-dashboard' : '/banker-dashboard'} replace />;
+    }
+    return children;
+  } catch {
+    return <Navigate to="/login" replace />;
+  }
 }
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
+      {/* Public pages */}
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/companies" element={<AllStartups />} />
+      <Route path="/startup-detail" element={<StartupDetailPage />} />
+      <Route path="/insights" element={<PredictiveInsights />} />
+
+      {/* Auth */}
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route 
-        path="/dashboard" 
+
+      {/* Protected dashboards */}
+      <Route
+        path="/startup-dashboard"
         element={
-          <ProtectedRoute>
-            <UserDashboard />
+          <ProtectedRoute requiredType="startup">
+            <StartupDashboard />
           </ProtectedRoute>
-        } 
+        }
       />
+      <Route
+        path="/banker-dashboard"
+        element={
+          <ProtectedRoute requiredType="investment_banker">
+            <BankerDashboard />
+          </ProtectedRoute>
+        }
+      />
+
+      {/* Protected feature pages */}
+      <Route
+        path="/startup-financials"
+        element={
+          <ProtectedRoute requiredType="startup">
+            <FinancialUpload />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/banker-investments"
+        element={
+          <ProtectedRoute requiredType="investment_banker">
+            <InvestmentTracker />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/banker-due-diligence"
+        element={
+          <ProtectedRoute requiredType="investment_banker">
+            <DueDiligencePipeline />
+          </ProtectedRoute>
+        }
+      />
+
+      {/* Fallback */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
-  )
+  );
 }
 
-export default App
+export default App;
