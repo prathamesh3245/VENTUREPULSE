@@ -3,7 +3,7 @@
 
 import { Link, useNavigate } from "react-router-dom";
 import frameImg from "../assets/Frame 1.png";
-import { useAuth } from "../context/Authcontext.jsx";
+import { useAuth } from "../context/AuthContext.jsx";
 
 export const NavBar = () => {
   const { currentUser, logout } = useAuth();
