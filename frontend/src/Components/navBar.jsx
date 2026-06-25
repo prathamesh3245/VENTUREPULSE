@@ -1,55 +1,9 @@
-// import { AllStartups } from "./allStartups"
-// import { Link } from "react-router-dom";
-// import frameImg from "../assets/Frame 1.png";
-// export const NavBar = () => {
 
-//     return(
-//         <>
-//             {/* <span className="navigation">
-//                 <p>About</p>
-//                 <p>Companies</p>
-//                 <p>Library</p>
-//                 <p>Partners</p>
-//                 <p>Resources</p>
-//                 <p>Startup Jobs</p>
-//             </span> */}
-
-//             <nav className="navigation">
-//                 <ul>
-//                     <li>
-//                         <Link to="/">About</Link>
-//                     </li>
-//                     <li>
-//                         <Link to="/companies">Companies</Link>
-//                     </li>
-//                     <li>
-//                         <Link >Library</Link>
-//                     </li>
-//                     <li>
-//                         <Link to='/'><img src={frameImg} alt=""  style={{height: "50px"}} /></Link>
-//                     </li>
-//                     <li>
-//                         <Link >Partners</Link>
-//                     </li>
-//                     <li>
-//                         <Link >Resources</Link>
-//                     </li>
-//                     <li>
-//                         <Link >Login</Link>
-//                     </li>
-//                 </ul>
-//             </nav>
-//         </>
-//     )
-// }
-
-
-///   
 
 
 import { Link, useNavigate } from "react-router-dom";
 import frameImg from "../assets/Frame 1.png";
-import { useAuth } from "../context/Authcontext";
+import { useAuth } from "../context/Authcontext.jsx";
 
 export const NavBar = () => {
   const { currentUser, logout } = useAuth();
