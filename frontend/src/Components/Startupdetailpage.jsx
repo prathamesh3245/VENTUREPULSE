@@ -6,7 +6,7 @@ import {
     RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
     PieChart, Pie, Cell, ReferenceLine, ComposedChart,
 } from 'recharts';
-import { findStartupData } from '../data/StartupData.js';
+import { findStartupData } from '../data/Startupdata.js';
 
 // ── FONTS ─────────────────────────────────────────────────────────────────────
 const SERIF = '"IBM Plex Mono", "Courier New", monospace';
